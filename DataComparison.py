@@ -5,7 +5,7 @@ def datacompare():
     pre=f.read()
     html = urlopen("https://computer.cnu.ac.kr/computer/notice/bachelor.do")
     bs = BeautifulSoup(html, "html.parser")
-    tags = bs.select("tbody > tr > td > div > a")
+    tags = bs.select("div.b-title-box > a")
     print("학사공지\n")
     for tag in tags:
         if(tag.get('title') not in pre):
@@ -13,7 +13,7 @@ def datacompare():
     print("--------------------------------------------------------------------\n")
     html = urlopen("https://computer.cnu.ac.kr/computer/notice/notice.do")
     bs = BeautifulSoup(html, "html.parser")
-    tags = bs.select("tbody > tr > td > div > a")
+    tags = bs.select("div.b-title-box > a")
     print("일반소식\n")
     for tag in tags:
         if (tag.get('title') not in pre):
@@ -21,7 +21,7 @@ def datacompare():
     print("--------------------------------------------------------------------\n")
     html = urlopen("https://computer.cnu.ac.kr/computer/notice/project.do")
     bs = BeautifulSoup(html, "html.parser")
-    tags = bs.select("tbody > tr > td > div > a")
+    tags = bs.select("div.b-title-box > a")
     print("사업단소식\n")
     for tag in tags:
         if (tag.get('title') not in pre):
@@ -29,7 +29,7 @@ def datacompare():
     print("--------------------------------------------------------------------\n")
     html = urlopen("https://computer.cnu.ac.kr/computer/notice/job.do")
     bs = BeautifulSoup(html, "html.parser")
-    tags = bs.select("tbody > tr > td > div > a")
+    tags = bs.select("div.b-title-box > a")
     print("취업정보\n")
     for tag in tags:
         if (tag.get('title') not in pre):
